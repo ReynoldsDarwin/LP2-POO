@@ -24,7 +24,7 @@ cargo = input("Ingrese el cargo(gerente/supervisor/operario/interno): ")
 salario = float(input("Ingrese su salario actual: "))
 
 empleado = Empleado(nombre,cargo,salario)
-print(empleado.aplicarAumento())
+print(f"{empleado.aplicarAumento()}")
             
         
         
