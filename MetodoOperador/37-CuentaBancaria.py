@@ -19,7 +19,8 @@ class CuentaBancaria:
         
 titular = input("Ingrese su nombre: ")
 saldo = float(input("Ingrese su saldo: "))
-descuento1 = float(input("Ingrese primer descuento: "))
+descuento1 = float(input("Ingrese el primer descuento: "))
+descuento2 = float(input("Ingrese el segundo descuento: "))
 
 cuenta1 = CuentaBancaria(titular,saldo)
 cuenta1.mostrar()
@@ -27,6 +28,6 @@ cuenta1.mostrar()
 cuenta2 = cuenta1 - descuento1
 cuenta2.mostrar()
 
-cuenta3 = cuenta2 - 700
+cuenta3 = cuenta2 - descuento2
 cuenta3.mostrar()
 
