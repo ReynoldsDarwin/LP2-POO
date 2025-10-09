@@ -1,4 +1,9 @@
-# Proyecto LP2-POO
+# Para la visualizacion del proyecto visitar el sitio web:
+
+El proyecto del repositorio tiene una pagina web en Github  con el link:
+"https://reynoldsdarwin.github.io/LP2-POO/"
+
+# Proyecto LP2-POO 
 
 Este proyecto contiene ejemplos y ejercicios prácticos de Programación Orientada a Objetos (POO) en Python, desarrollados para el curso de Lenguaje de Programación II. El objetivo es mostrar conceptos clave de POO como encapsulamiento, herencia, polimorfismo y relaciones entre clases, aplicados en distintos contextos y problemas.
 
