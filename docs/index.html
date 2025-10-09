@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LP2 - Programación Orientada a Objetos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            color: white;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 10px 5px;
+            font-size: 0.9em;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .section h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 30px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .card h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .code-example {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-example code {
+            color: #68d391;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .features-list li:hover {
+            background: #edf2f7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .main-content {
+                padding: 20px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐍 LP2 - POO en Python</h1>
+            <p>Programación Orientada a Objetos</p>
+            <div>
+                <span class="badge">Python 3.7+</span>
+                <span class="badge">Universidad Nacional del Altiplano</span>
+                <span class="badge">Lenguaje de Programación II</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <section class="section">
+                <h2>📚 Sobre el Proyecto</h2>
+                <p>Este repositorio contiene ejemplos y ejercicios prácticos de <strong>Programación Orientada a Objetos (POO)</strong> en Python, desarrollados para el curso de Lenguaje de Programación II. El objetivo es mostrar conceptos clave de POO como encapsulamiento, herencia, polimorfismo y relaciones entre clases, aplicados en distintos contextos y problemas.</p>
+            </section>
+
+            <section class="section">
+                <h2>🎯 Temas Cubiertos</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-icon">🔗</div>
+                        <h3>Relaciones de Clase</h3>
+                        <p>Ejemplos de asociación, agregación y composición entre clases. Gestión de estudiantes, profesores y cursos.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🔒</div>
+                        <h3>Encapsulamiento</h3>
+                        <p>Uso de atributos privados y métodos para proteger la información de los objetos.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">👨‍👩‍👧</div>
+                        <h3>Herencia</h3>
+                        <p>Clases que heredan atributos y métodos, mostrando reutilización y extensión de código.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🎭</div>
+                        <h3>Polimorfismo</h3>
+                        <p>Diferentes clases implementan métodos con el mismo nombre pero comportamientos distintos.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">💡</div>
+                        <h3>Ejercicios Prácticos</h3>
+                        <p>Calculadoras, figuras geométricas y otros problemas variados de POO.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>💻 Ejemplo de Código</h2>
+                <p>Ejemplo de relaciones entre clases (53-Estudiante.py):</p>
+                <div class="code-example">
+<code># Crear profesores, cursos y estudiantes
+profe1 = Profesor("Ing. Juan Carlos", "01323043", "Programación")
+curso1 = Curso("Lenguaje de Programación II", profe1)
+est1 = Estudiante("Milena Kely", "013123456", "2025007")
+
+# Inscribir estudiante en curso
+est1.inscribirse(curso1)
+
+# Mostrar información
+curso1.mostrar_detalles()
+est1.mostrar_informacion()</code>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>📁 Estructura del Repositorio</h2>
+                <ul class="features-list">
+                    <li><strong>RelacionesDeClase/</strong> - Asociación, agregación y composición</li>
+                    <li><strong>Encapsulamiento/</strong> - Atributos privados y protección de datos</li>
+                    <li><strong>Herencia/</strong> - Reutilización y extensión de código</li>
+                    <li><strong>Polimorfismo/</strong> - Métodos con comportamientos distintos</li>
+                    <li><strong>EjerciciosPracticos/</strong> - Problemas variados de POO</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>🚀 Cómo Usar</h2>
+                <div class="code-example">
+<code># Clonar el repositorio
+git clone https://github.com/ReynoldsDarwin/LP2-POO.git
+
+# Navegar al directorio
+cd LP2-POO
+
+# Ejecutar cualquier ejemplo
+python RelacionesDeClase/53-Estudiante.py</code>
+                </div>
+            </section>
+
+            <section class="section" style="text-align: center;">
+                <h2>📥 Accede al Repositorio</h2>
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO" class="btn-primary" target="_blank">Ver en GitHub</a>
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/archive/refs/heads/main.zip" class="btn-primary" target="_blank">Descargar ZIP</a>
+            </section>
+        </div>
+
+        <footer>
+            <p>Desarrollado por estudiantes de la <strong>Universidad Nacional del Altiplano</strong></p>
+            <p>Curso: Lenguaje de Programación II</p>
+            <p style="margin-top: 15px;">
+                <a href="https://github.com/ReynoldsDarwin" target="_blank">@ReynoldsDarwin</a> | 
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO" target="_blank">Repositorio</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
