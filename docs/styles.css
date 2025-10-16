@@ -185,11 +185,9 @@ header p {
 
 .btn-primary:hover {
     transform: scale(1.05);
-    /* CAMBIO: Sombra de hover en tono Verde Neón */
     box-shadow: 0 10px 25px rgba(0, 255, 153, 0.5);
 }
 
-/* Features List (Repository Structure) Styles */
 .features-list {
     list-style: none;
     padding: 0;
