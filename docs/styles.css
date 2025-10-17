@@ -3,41 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
-header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #00ff99; 
-    animation: neonGlow 2s ease-in-out infinite alternate; 
-}
 
-@keyframes neonGlow {
-    from {
-        text-shadow: 0 0 5px #00ff99, 
-                     0 0 10px #00ff99,
-                     0 0 15px #00ff99,
-                     0 0 20px rgba(12, 239, 148, 0.842);
-    }
-    to {
-        text-shadow: 0 0 10px #00ff99, 
-                     0 0 20px #00ff99,
-                     0 0 30px #0a1410,
-                     0 0 40px rgba(21, 96, 66, 0.6),
-                     0 0 50px rgba(2, 30, 18, 0.8);
-    }
-}
-
-.badge {
-    display: inline-block;
-    background: rgba(0, 255, 153, 0.2); 
-    padding: 5px 15px;
-    border-radius: 20px;
-    margin: 10px 5px;
-    font-size: 0.9em;
-    color: #00ff99; 
-    border: 1px solid #f1f5f3; 
-}
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Degradado oscuro para un tema tecnológico */
     background: linear-gradient(135deg, #16222A 0%, #3A6073 100%);
     color: #f7fafc; 
     line-height: 1.6;
@@ -61,7 +30,9 @@ header {
 header h1 {
     font-size: 3em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #00ff99; /* Texto del título en Verde Neón */
+    /* Animación de brillo neón */
+    animation: neonGlow 2s ease-in-out infinite alternate; 
 }
 
 header p {
@@ -70,20 +41,21 @@ header p {
 }
 
 .badge {
-    /* Mantenemos el blanco semi-transparente para que resalte en el fondo oscuro */
+    /* Estilo de badge en tono Neón */
     display: inline-block;
-    background: rgba(255,255,255,0.2);
+    background: rgba(0, 255, 153, 0.2); 
     padding: 5px 15px;
     border-radius: 20px;
     margin: 10px 5px;
     font-size: 0.9em;
-    color: #fff; /* Aseguramos que el texto sea blanco */
+    color: #00ff99; 
+    border: 1px solid #00ff99; 
 }
 
 /* Main Content Styles */
 .main-content {
     background: #1e2833; /* Fondo oscuro ligeramente más claro que el body */
-    color: #f7fafc; /* Texto claro dentro del contenedor principal */
+    color: #f7fafc; 
     border-radius: 20px;
     padding: 40px;
     margin: 20px 0;
@@ -91,23 +63,28 @@ header p {
     animation: slideUp 0.8s ease-out;
 }
 
-.section.estructure {
+/* CORRECCIÓN DE ALINEACIÓN: 
+ * Asegura que el contenido de ciertas secciones (Sobre el proyecto, Estructura, Código) se alinee a la izquierda.
+ */
+.section-text-align-left { 
+    text-align: left !important; /* Fuerza la alineación para texto y elementos de bloque */
+}
+
+.section-text-align-left h2 {
     text-align: left;
 }
 
 .section {
     margin: 40px 0;
-    text-align: center;
+    text-align: center; /* Alineación por defecto para centrar títulos en las secciones no marcadas */
 }
 
 .section h2 {
-    /* CAMBIO: Color de acento Verde Neón */
-    color: #00ff99;
+    color: #00ff99; /* Verde Neón */
     font-size: 2em;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    /* CAMBIO: Línea divisoria Verde Neón */
-    border-bottom: 3px solid #00ff99;
+    border-bottom: 3px solid #00ff99; /* Línea divisoria Verde Neón */
 }
 
 /* Cards Grid Styles */
@@ -118,34 +95,46 @@ header p {
     margin-top: 30px;
 }
 
-.card {
-    /* Fondo de tarjeta oscuro */
-    background: #283441;
-    color: #e2e8f0;
+/* NUEVA CLASE: Estilo principal de la tarjeta se aplica al enlace */
+.card-link {
+    text-decoration: none; /* ELIMINA el subrayado del enlace */
+    color: inherit; /* Hereda el color de texto del main-content */
+    display: block; /* Hace que el enlace ocupe todo el espacio de la cuadrícula */
+    cursor: pointer; /* Indica que es clickeable */
+    
+    /* ESTILOS MOVIDOS DEL .card A .card-link */
+    background: #283441; 
     padding: 30px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
 }
 
-.card:hover {
+/* El div .card ahora es solo un contenedor interno sin estilos de fondo/borde */
+.card {
+    background: none; 
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    text-align: center;
+    height: 100%; 
+}
+
+/* El efecto de hover se aplica ahora al enlace */
+.card-link:hover {
     transform: translateY(-10px);
-    /* CAMBIO: Sombra al hacer hover en tono Verde Neón */
     box-shadow: 0 15px 30px rgba(0, 255, 153, 0.4);
 }
 
 .card h3 {
-    /* CAMBIO: Color de título de tarjeta Verde Neón */
-    color: #00ff99;
+    color: #00ff99; /* Verde Neón */
     font-size: 1.5em;
     margin-bottom: 15px;
 }
 
-/* Puedes añadir este color también a los card-icon para un efecto consistente */
 .card-icon {
     font-size: 3em;
     margin-bottom: 15px;
-    color: #00ff99; /* Para que los iconos también sean verde neón */
+    color: #00ff99; /* Iconos en Verde Neón */
 }
 
 .card p {
@@ -154,7 +143,7 @@ header p {
 
 /* Code Example Styles */
 .code-example {
-    background: #111827; /* Fondo de código muy oscuro */
+    background: #111827; 
     color: #e2e8f0;
     padding: 20px;
     border-radius: 10px;
@@ -164,16 +153,15 @@ header p {
 }
 
 .code-example code {
-    /* CAMBIO: Color de código resaltado Verde Neón */
-    color: #00ff99;
+    color: #00ff99; /* Código resaltado Verde Neón */
 }
 
 /* Button Styles */
 .btn-primary {
     display: inline-block;
-    /* CAMBIO: Degradado de botón Verde Neón */
+    /* Degradado de botón Verde Neón */
     background: linear-gradient(135deg, #00ff99 0%, #00b366 100%);
-    color: #1e2833; /* Color de texto oscuro para contraste con el neón */
+    color: #1e2833; 
     padding: 15px 40px;
     border-radius: 50px;
     text-decoration: none;
@@ -188,6 +176,7 @@ header p {
     box-shadow: 0 10px 25px rgba(0, 255, 153, 0.5);
 }
 
+/* Features List (Repository Structure) Styles */
 .features-list {
     list-style: none;
     padding: 0;
@@ -196,17 +185,14 @@ header p {
 .features-list li {
     padding: 15px;
     margin: 10px 0;
-    /* CAMBIO: Fondo de lista oscuro */
     background: #283441; 
-    /* CAMBIO: Borde izquierdo Verde Neón */
-    border-left: 4px solid #00ff99;
+    border-left: 4px solid #00ff99; /* Borde izquierdo Verde Neón */
     border-radius: 5px;
     transition: background 0.3s ease;
-    color: #f7fafc; /* Texto claro */
+    color: #f7fafc; 
 }
 
 .features-list li:hover {
-    
     background: #3a495b;
 }
 
@@ -219,7 +205,6 @@ footer {
 }
 
 footer a {
-    
     color: #00ff99;
     text-decoration: none;
     font-weight: bold;
@@ -229,7 +214,23 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Animations */
+/* Animaciones */
+@keyframes neonGlow {
+    from {
+        text-shadow: 0 0 5px #00ff99, 
+                     0 0 10px #00ff99,
+                     0 0 15px #00ff99,
+                     0 0 25px rgba(0, 255, 153, 0.8);
+    }
+    to {
+        text-shadow: 0 0 10px #00ff99, 
+                     0 0 20px #00ff99,
+                     0 0 40px #00ff99,
+                     0 0 60px rgba(0, 255, 153, 1),
+                     0 0 80px rgba(0, 255, 153, 0.8);
+    }
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
