@@ -20,7 +20,6 @@ def dibujar_plano_cartesiano():
     glClear(GL_COLOR_BUFFER_BIT)
     glLoadIdentity()
 
-    # --- Ejes ---
     glColor3f(1, 1, 1)
     glBegin(GL_LINES)
     glVertex2f(-4.0, 0.0)
@@ -29,7 +28,6 @@ def dibujar_plano_cartesiano():
     glVertex2f(0.0, 4.0)
     glEnd()
 
-    # --- Marcas y números en eje X ---
     for i in range(-4, 5):
         glBegin(GL_LINES)
         glVertex2f(i, -0.1)
@@ -38,7 +36,6 @@ def dibujar_plano_cartesiano():
         if i != 0:
             dibujar_texto(i - 0.1, -0.4, str(i))
 
-    # --- Marcas y números en eje Y ---
     for j in range(-4, 5):
         glBegin(GL_LINES)
         glVertex2f(-0.1, j)
@@ -47,16 +44,15 @@ def dibujar_plano_cartesiano():
         if j != 0:
             dibujar_texto(0.2, j - 0.1, str(j))
 
-    # --- Función seno ---
-    glColor3f(0.0, 1.0, 0.0)  # Verde
+
+    glColor3f(0.0, 1.0, 0.0)  
     glBegin(GL_LINE_STRIP)
     for x in np.linspace(-4, 4, 400):
         y = math.sin(x)
         glVertex2f(x, y)
     glEnd()
 
-    # --- Función coseno ---
-    glColor3f(1.0, 0.0, 0.0)  # Rojo
+    glColor3f(1.0, 0.0, 0.0)  
     glBegin(GL_LINE_STRIP)
     for x in np.linspace(-4, 4, 400):
         y = math.cos(x)
