@@ -8,156 +8,175 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🐍 LP2 - POO en Python</h1>
-            <p>Programación Orientada a Objetos</p>
-            <div>
+    <!-- NUEVO HEADER DE NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">🐍 LP2-POO</div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#temas" class="nav-link">Temas</a></li>
+                <li><a href="#estructura" class="nav-link">Estructura</a></li>
+                <li><a href="#uso" class="nav-link">Uso</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION (Pantalla Completa) -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1 class="hero-title">🐍 LP2 - POO en Python</h1>
+            <p class="hero-subtitle">Programación Orientada a Objetos</p>
+            <div class="hero-badges">
                 <span class="badge">Python 3.14</span>
                 <span class="badge">Universidad Nacional del Altiplano</span>
                 <span class="badge">Lenguaje de Programación II</span>
             </div>
-        </header>
+            <div class="hero-cta">
+                <a href="#about" class="btn-hero">Explorar</a>
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO" class="btn-hero-outline" target="_blank">Ver Repositorio</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
 
-        <div class="main-content">
-
-            <section class="section section-text-align-left">
-                <h2>👤 Sobre mi</h2>
-                <p>Mi nombre es <strong>Darwin Reynolds</strong> y soy estudiante de Ingeniería Estadística e Informática en la <strong>Universidad Nacional del Altiplano</strong>. Actualmente curso la asignatura de Lenguaje de Programación II, donde desarrollo POO y me profundizo en el diseño, análisis y desarrollo de soluciones computacionales.
-
-                Tengo un marcado interés por la programación, la ingeniería de software y la ciencia de datos. Me motiva comprender cómo los algoritmos, la automatización y el procesamiento de información pueden optimizar procesos y generar conocimiento útil.
-
-                Busco consolidar mis competencias en desarrollo de sistemas, análisis de datos y modelamiento computacional, con el propósito de aportar al avance tecnológico mediante soluciones innovadoras y eficientes.</p>
-            </section>
-
-            <section class="section section-text-align-left">
-                <h2>📚 Sobre el Proyecto</h2>
-                <p>Este repositorio contiene ejemplos y ejercicios prácticos de <strong>Programación Orientada a Objetos (POO)</strong> en Python, desarrollados para el curso de Lenguaje de Programación II. El objetivo es mostrar conceptos clave de POO como encapsulamiento, herencia, polimorfismo y relaciones entre clases, aplicados en distintos contextos y problemas.</p>
-            </section>
-
-            <section class="section">
-                <h2>🎯 Temas Cubiertos</h2>
-                <div class="cards-grid">
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/IntroduccionPOO" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">💻</div>
-                            <h3>Introducción a POO</h3>
-                            <p>Definición de POO, clases y objetos.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Condicionales" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">𝒊𝒇</div>
-                            <h3>Condicionales</h3>
-                            <p>Uso de if, else y elif para tomar decisiones en el flujo del programa.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Bucles" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">🔄</div>
-                            <h3>Bucles</h3>
-                            <p>Uso de bucles for y while para iterar sobre colecciones y realizar acciones repetitivas.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Encapsulamiento" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">🔒</div>
-                            <h3>Encapsulamiento</h3>
-                            <p>Uso de atributos privados y métodos para proteger la información de los objetos.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/MetodoOperador" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">👷🏻‍♂️</div>
-                            <h3>Método Operador</h3>
-                            <p>Definición de métodos especiales para sobrecargar operadores en clases.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Constructor%20y%20Destructor" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">🛠️</div>
-                            <h3>Constructores y Destructores</h3>
-                            <p>Uso de constructores para inicializar objetos y destructores para liberar recursos.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/RelacionesDeClase" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">🔗</div>
-                            <h3>Relaciones de Clase</h3>
-                            <p>Ejemplos de asociación, agregación y composición entre clases. Gestión de estudiantes, profesores y cursos.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Herencia" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">👨‍👩‍👧</div>
-                            <h3>Herencia</h3>
-                            <p>Ejemplos de herencia y polimorfismo en POO. Clases base y derivadas.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Polimorfismo" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">🎭</div>
-                            <h3>Polimorfismo</h3>
-                            <p>Ejemplos de polimorfismo en POO. Métodos y clases abstractas.</p>
-                        </div>
-                    </a>
-
-                    <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Practicas" class="card-link" target="_blank">
-                        <div class="card">
-                            <div class="card-icon">💡</div>
-                            <h3>Prácticas</h3>
-                            <p>Calculadoras, figuras geométricas y otros problemas variados de POO.</p>
-                        </div>
-                    </a>
+    <div class="container">
+        <!-- SECCIÓN ABOUT: DOS TARJETAS (Sobre mi y Sobre el Proyecto) -->
+        <section class="about-section" id="about">
+            <div class="about-grid">
+                <!-- Tarjeta Izquierda: Sobre mi -->
+                <div class="about-card fade-in-element">
+                    <h2>👤 Sobre mi</h2>
+                    <p>Mi nombre es <strong>Darwin Reynolds</strong>, estudiante de Ingeniería Estadística e Informática en la <strong>Universidad Nacional del Altiplano</strong>. Actualmente llevo cursando la asignatura de <strong>Lenguaje de Programación II</strong>, donde el foco principal es mejorar mis capacidades en POO, también me profundizo en el diseño, análisis y desarrollo de soluciones computacionales.</p>
+                    <p>Tengo un marcado interés por la programación, la ingeniería de software y la ciencia de datos. Todo esto me motiva a comprender cómo los algoritmos, la automatización y el procesamiento de información pueden optimizar procesos.</p>
+                    <p>Busco consolidar mis competencias en desarrollo de sistemas, análisis de datos y modelamiento computacional, con el propósito de aportar al avance tecnológico mediante soluciones innovadoras y eficientes.</p>
                 </div>
-            </section>
 
-            <section class="section section-text-align-left">
-                <h2>💻 Ejemplo de Código</h2>
-                <p>Ejemplo de relaciones entre clases (53-Estudiante.py):</p>
-                <div class="code-example">
-<code># Crear profesores, cursos y estudiantes
-profe1 = Profesor("Ing. Juan Carlos", "01323043", "Programación")
-curso1 = Curso("Lenguaje de Programación II", profe1)
-est1 = Estudiante("Milena Kely", "013123456", "2025007")
-
-# Inscribir estudiante en curso
-est1.inscribirse(curso1)
-
-# Mostrar información
-curso1.mostrar_detalles()
-est1.mostrar_informacion()</code>
+                <!-- Tarjeta Derecha: Sobre el Proyecto -->
+                <div class="about-card fade-in-element">
+                    <h2>📚 Sobre el Proyecto</h2>
+                    <p>Este repositorio contiene ejemplos y ejercicios prácticos de <strong>Programación Orientada a Objetos (POO)</strong> en Python, desarrollados para el curso de Lenguaje de Programación II.</p>
+                    <p>El objetivo es mostrar conceptos clave de POO como encapsulamiento, herencia, polimorfismo y relaciones entre clases, aplicados en distintos contextos y problemas.</p>
+                    <p>Cada carpeta del repositorio contiene ejemplos bien documentados y ejercicios que demuestran la aplicación práctica de estos principios fundamentales de la programación orientada a objetos.</p>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section section-text-align-left">
-                <h2>📁 Estructura del Repositorio</h2>
-                <ul class="features-list">
-                    <li><strong>Introducción/</strong> - Conceptos básicos de POO</li>
-                    <li><strong>Condicionales/</strong> - Uso de if, else y elif</li>
-                    <li><strong>Bucles/</strong> - Iteraciones con for y while</li>
-                    <li><strong>MétodosOperador/</strong> - Sobrecarga de operadores</li>
-                    <li><strong>Encapsulamiento/</strong> - Atributos privados y protección de datos</li>
-                    <li><strong>ConstructoresDestructores/</strong> - Inicialización y limpieza de objetos</li>
-                    <li><strong>RelacionesDeClase/</strong> - Asociación, agregaciónl y composición</li>
-                    <li><strong>Herencia/</strong> - Clases base y derivadas</li>
-                    <li><strong>Polimorfismo/</strong> - Métodos y clases abstractas</li>
-                    <li><strong>Prácticas/</strong> - Problemas variados de POO</li>
-                </ul>
-            </section>
+        <!-- SECCIÓN TEMAS CUBIERTOS -->
+        <section class="section" id="temas">
+            <h2 class="section-title fade-in-element">🎯 Temas Cubiertos</h2>
+            <div class="cards-grid">
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/IntroduccionPOO" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3>Introducción a POO</h3>
+                        <p>Definición de POO, clases y objetos.</p>
+                    </div>
+                </a>
 
-            <section class="section">
-                <h2>🚀 Cómo Usar</h2>
-                <div class="code-example">
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Condicionales" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">𝒊𝒇</div>
+                        <h3>Condicionales</h3>
+                        <p>Uso de if, else y elif para tomar decisiones en el flujo del programa.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Bucles" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">🔄</div>
+                        <h3>Bucles</h3>
+                        <p>Uso de bucles for y while para iterar sobre colecciones y realizar acciones repetitivas.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Encapsulamiento" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">🔒</div>
+                        <h3>Encapsulamiento</h3>
+                        <p>Uso de atributos privados y métodos para proteger la información de los objetos.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/MetodoOperador" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">👷🏻‍♂️</div>
+                        <h3>Método Operador</h3>
+                        <p>Definición de métodos especiales para sobrecargar operadores en clases.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Constructor%20y%20Destructor" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">🛠️</div>
+                        <h3>Constructores y Destructores</h3>
+                        <p>Uso de constructores para inicializar objetos y destructores para liberar recursos.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/RelacionesDeClase" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">🔗</div>
+                        <h3>Relaciones de Clase</h3>
+                        <p>Ejemplos de asociación, agregación y composición entre clases. Gestión de estudiantes, profesores y cursos.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Herencia" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">👨‍👩‍👧</div>
+                        <h3>Herencia</h3>
+                        <p>Ejemplos de herencia y polimorfismo en POO. Clases base y derivadas.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Polimorfismo" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">🎭</div>
+                        <h3>Polimorfismo</h3>
+                        <p>Ejemplos de polimorfismo en POO. Métodos y clases abstractas.</p>
+                    </div>
+                </a>
+
+                <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Practicas" class="card-link fade-in-element" target="_blank">
+                    <div class="card">
+                        <div class="card-icon">💡</div>
+                        <h3>Prácticas</h3>
+                        <p>Calculadoras, figuras geométricas y otros problemas variados de POO.</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ESTRUCTURA DEL REPOSITORIO -->
+        <section class="section section-text-align-left" id="estructura">
+            <h2 class="section-title fade-in-element">📁 Estructura del Repositorio</h2>
+            <ul class="features-list">
+                <li class="fade-in-element"><strong>Introducción/</strong> - Conceptos básicos de POO</li>
+                <li class="fade-in-element"><strong>Condicionales/</strong> - Uso de if, else y elif</li>
+                <li class="fade-in-element"><strong>Bucles/</strong> - Iteraciones con for y while</li>
+                <li class="fade-in-element"><strong>MétodosOperador/</strong> - Sobrecarga de operadores</li>
+                <li class="fade-in-element"><strong>Encapsulamiento/</strong> - Atributos privados y protección de datos</li>
+                <li class="fade-in-element"><strong>ConstructoresDestructores/</strong> - Inicialización y limpieza de objetos</li>
+                <li class="fade-in-element"><strong>RelacionesDeClase/</strong> - Asociación, agregación y composición</li>
+                <li class="fade-in-element"><strong>Herencia/</strong> - Clases base y derivadas</li>
+                <li class="fade-in-element"><strong>Polimorfismo/</strong> - Métodos y clases abstractas</li>
+                <li class="fade-in-element"><strong>Prácticas/</strong> - Problemas variados de POO</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN CÓMO USAR -->
+        <section class="section" id="uso">
+            <h2 class="section-title fade-in-element">🚀 Cómo Usar</h2>
+            <div class="code-example fade-in-element">
 <code># Clonar el repositorio
 git clone https://github.com/ReynoldsDarwin/LP2-POO.git
 
@@ -166,16 +185,14 @@ cd LP2-POO
 
 # Ejecutar cualquier ejemplo
 python RelacionesDeClase/53-Estudiante.py</code>
-                </div>
-            </section>
-
-            <section class="section">
-                <h2>📥 Accede al Repositorio</h2>
+            </div>
+            <div class="cta-buttons fade-in-element">
                 <a href="https://github.com/ReynoldsDarwin/LP2-POO" class="btn-primary" target="_blank">Ver en GitHub</a>
                 <a href="https://github.com/ReynoldsDarwin/LP2-POO/archive/refs/heads/main.zip" class="btn-primary" target="_blank">Descargar ZIP</a>
-            </section>
-        </div>
+            </div>
+        </section>
 
+        <!-- FOOTER -->
         <footer>
             <p>Desarrollado en las sesiones de clase en la <strong>Universidad Nacional del Altiplano</strong></p>
             <p>Curso: Lenguaje de Programación II</p>
@@ -185,6 +202,10 @@ python RelacionesDeClase/53-Estudiante.py</code>
             </p>
         </footer>
     </div>
+
+    <!-- Botón Scroll to Top -->
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Volver arriba">↑</button>
+
     <script src="script.js"></script>   
 </body>
 </html>
