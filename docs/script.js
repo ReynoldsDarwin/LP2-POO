@@ -117,6 +117,28 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// ===== ANIMACION HOVER EN CARDS ABOUT =====
+
+document.querySelectorAll('.about-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 5;
+        const centerY = rect.height / 5;
+        
+        const rotateX = (y - centerY) / 150;
+        const rotateY = (centerX - x) / 150;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+    });
+});
+
 // ===== ANIMACIÓN DE HOVER EN CARDS CON EFECTO 3D =====
 document.querySelectorAll('.card-link').forEach(card => {
     card.addEventListener('mousemove', (e) => {
@@ -137,6 +159,7 @@ document.querySelectorAll('.card-link').forEach(card => {
         card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
     });
 });
+
 
 // ===== CONSOLE LOG DE BIENVENIDA =====
 console.log('%c🐍 LP2 - POO en Python', 'font-size: 20px; color: #00ff99; font-weight: bold;');

@@ -136,7 +136,7 @@ body {
 .hero-title {
     font-size: 4.5em;
     margin-bottom: 20px;
-    color: #00ff99;
+    color: #1a2a23;
     animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
@@ -144,6 +144,9 @@ body {
     font-size: 1.8em;
     opacity: 0.95;
     margin-bottom: 30px;
+    font-weight: 500;
+    font-family: sans-serif;
+    color:rgb(127, 233, 215)
 }
 
 .hero-badges {
@@ -258,6 +261,7 @@ body {
 .about-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 50px rgba(0, 255, 153, 0.3);
+    
 }
 
 .about-card h2 {
