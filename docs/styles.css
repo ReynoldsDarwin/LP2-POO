@@ -200,7 +200,7 @@ body {
 
 .btn-hero-outline {
     display: inline-block;
-    background: transparent;
+    background: #010e05;
     color: #00ff99;
     padding: 15px 40px;
     border: 2px solid #00ff99;
@@ -212,7 +212,7 @@ body {
 }
 
 .btn-hero-outline:hover {
-    background: rgba(0, 255, 153, 0.1);
+    background: rgba(0, 0, 0, 0.905);
     transform: scale(1.05);
 }
 
@@ -251,7 +251,7 @@ body {
 }
 
 .about-card {
-    background: #1e2833;
+    background: #0c0f0d;
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
@@ -314,7 +314,7 @@ body {
     color: inherit;
     display: block;
     cursor: pointer;
-    background: #283441; 
+    background: #0c0f0d; 
     padding: 30px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -332,6 +332,7 @@ body {
 .card-link:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 255, 153, 0.4);
+    background: #050d0b;
 }
 
 .card h3 {
@@ -400,15 +401,15 @@ body {
 .features-list li {
     padding: 20px;
     margin: 15px 0;
-    background: #283441; 
-    border-left: 4px solid #00ff99;
+    background: #040807; 
+    border-left: 4px solid #0ec27a;
     border-radius: 8px;
     transition: all 0.3s ease;
     color: #f7fafc; 
 }
 
 .features-list li:hover {
-    background: #3a495b;
+    background: #077e60;
     transform: translateX(10px);
 }
 
