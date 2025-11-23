@@ -5,7 +5,6 @@ from OpenGL.GLU import *
 PATO_LIST_ID = 1
 
 def inicializar():
-    """Configura el entorno OpenGL y compila la Display List"""
     global PATO_LIST_ID
 
     glClearColor(1, 0.2, 0, 0) 
