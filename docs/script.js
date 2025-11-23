@@ -1,3 +1,11 @@
+// ===== VARIABLES GLOBALES =====
+const navbar = document.getElementById('navbar');
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+const scrollTopBtn = document.getElementById('scrollTopBtn');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
 // ===== SMOOTH SCROLL Y NAVEGACIÓN =====
 document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -20,29 +28,77 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// ===== NAVEGACIÓN STICKY CON EFECTO AL SCROLL =====
-const navbar = document.getElementById('navbar');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-
-    lastScroll = currentScroll;
-});
-
 // ===== MENÚ MÓVIL TOGGLE =====
-const navToggle = document.getElementById('navToggle');
-const navMenu = document.getElementById('navMenu');
-
 navToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     navToggle.classList.toggle('active');
+});
+
+// Cerrar menú al hacer click fuera de él
+document.addEventListener('click', (e) => {
+    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    }
+});
+
+// ===== SCROLL HANDLER OPTIMIZADO (COMBINADO) =====
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const currentScroll = window.pageYOffset;
+            
+            // Navbar scroll effect
+            if (currentScroll > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Scroll to top button
+            if (currentScroll > 500) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+            
+            // Highlight active nav link
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (currentScroll >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Parallax effect en hero
+            const hero = document.querySelector('.hero');
+            if (hero && currentScroll < window.innerHeight) {
+                hero.style.transform = `translateY(${currentScroll * 0.5}px)`;
+                hero.style.opacity = 1 - (currentScroll / window.innerHeight);
+            }
+            
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
+
+// ===== BOTÓN SCROLL TO TOP =====
+scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
 });
 
 // ===== ANIMACIÓN DE ELEMENTOS AL HACER SCROLL (INTERSECTION OBSERVER) =====
@@ -64,61 +120,7 @@ document.querySelectorAll('.fade-in-element').forEach(element => {
     observer.observe(element);
 });
 
-// ===== BOTÓN SCROLL TO TOP =====
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 500) {
-        scrollTopBtn.classList.add('show');
-    } else {
-        scrollTopBtn.classList.remove('show');
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-// ===== HIGHLIGHT DEL LINK ACTIVO EN LA NAVEGACIÓN =====
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-link');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// ===== EFECTO PARALLAX SUAVE EN HERO =====
-window.addEventListener('scroll', () => {
-    const hero = document.querySelector('.hero');
-    const scrolled = window.pageYOffset;
-    
-    if (hero && scrolled < window.innerHeight) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        hero.style.opacity = 1 - (scrolled / window.innerHeight);
-    }
-});
-
-// ===== ANIMACION HOVER EN CARDS ABOUT =====
-
+// ===== ANIMACIÓN HOVER EN CARDS ABOUT CON EFECTO 3D =====
 document.querySelectorAll('.about-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -139,7 +141,7 @@ document.querySelectorAll('.about-card').forEach(card => {
     });
 });
 
-// ===== ANIMACIÓN DE HOVER EN CARDS CON EFECTO 3D =====
+// ===== ANIMACIÓN DE HOVER EN CARDS DE TEMAS CON EFECTO 3D =====
 document.querySelectorAll('.card-link').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
@@ -160,8 +162,51 @@ document.querySelectorAll('.card-link').forEach(card => {
     });
 });
 
+// ===== PRELOAD - SCROLL SUAVE AL CARGAR =====
+window.addEventListener('load', () => {
+    // Si hay un hash en la URL, hacer scroll suave a esa sección
+    if (window.location.hash) {
+        setTimeout(() => {
+            const targetSection = document.querySelector(window.location.hash);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 100);
+    }
+});
+
+// ===== NAVEGACIÓN CON TECLADO (ACCESIBILIDAD) =====
+// Permitir activar el toggle del menú con Enter o Space
+navToggle.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
+    }
+});
+
+// ===== DETECCIÓN DE SCROLL HACIA ARRIBA/ABAJO =====
+let lastScrollTop = 0;
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Puedes usar esta lógica en el futuro para ocultar/mostrar el navbar
+    if (scrollTop > lastScrollTop) {
+        // Scrolling down
+        // navbar.style.transform = 'translateY(-100%)';  // Opcional: ocultar navbar
+    } else {
+        // Scrolling up
+        // navbar.style.transform = 'translateY(0)';  // Opcional: mostrar navbar
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, false);
 
 // ===== CONSOLE LOG DE BIENVENIDA =====
 console.log('%c🐍 LP2 - POO en Python', 'font-size: 20px; color: #00ff99; font-weight: bold;');
 console.log('%cDesarrollado por Darwin Reynolds', 'font-size: 14px; color: #a0aec0;');
 console.log('%cRepositorio: https://github.com/ReynoldsDarwin/LP2-POO', 'font-size: 12px; color: #00ff99;');
+console.log('%c✨ Sitio optimizado y accesible', 'font-size: 11px; color: #6ee7b7; font-style: italic;');
