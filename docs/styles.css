@@ -136,7 +136,7 @@ body {
 .hero-title {
     font-size: 4.5em;
     margin-bottom: 20px;
-    color: #1a2a23;
+    color: #000000;
     animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
