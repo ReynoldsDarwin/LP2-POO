@@ -11,13 +11,26 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
         
-        if (targetSection) {
-            targetSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Si es el link de "Inicio", ir directamente al top
+        if (targetId === '#inicio') {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
+        } else {
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                // Calcular offset del navbar
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = targetSection.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         }
 
         // Cerrar menú móvil si está abierto
@@ -169,9 +182,12 @@ window.addEventListener('load', () => {
         setTimeout(() => {
             const targetSection = document.querySelector(window.location.hash);
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navbarHeight = navbar.offsetHeight;
+                const targetPosition = targetSection.offsetTop - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         }, 100);
