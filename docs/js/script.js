@@ -221,6 +221,90 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
 
+// ===== CARRUSEL DE PROYECTOS =====
+const carouselSlides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.carousel-control.prev');
+const nextBtn = document.querySelector('.carousel-control.next');
+const indicators = document.querySelectorAll('.indicator');
+
+let currentSlide = 0;
+const totalSlides = carouselSlides.length;
+
+// Función para mostrar slide
+function showSlide(index) {
+    // Asegurar que el índice esté en rango
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    // Ocultar todos los slides
+    carouselSlides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+
+    // Mostrar slide actual
+    carouselSlides[currentSlide].classList.add('active');
+
+    // Actualizar indicadores
+    indicators.forEach((indicator, i) => {
+        indicator.classList.remove('active');
+        if (i === currentSlide) {
+            indicator.classList.add('active');
+        }
+    });
+}
+
+// Navegación con flechas
+if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+    });
+}
+
+// Navegación con indicadores
+indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+        showSlide(index);
+    });
+});
+
+// Navegación con teclado (flechas)
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        showSlide(currentSlide - 1);
+    } else if (e.key === 'ArrowRight') {
+        showSlide(currentSlide + 1);
+    }
+});
+
+//Auto-play opcional (descomenta si quieres que cambie automáticamente)
+let autoplayInterval = setInterval(() => {
+    showSlide(currentSlide + 1);
+}, 4000); // Cambia cada 4 segundos
+
+// Pausar autoplay al hover (si está activado)
+const carouselContainer = document.querySelector('.carousel-container');
+if (carouselContainer) {
+    carouselContainer.addEventListener('mouseenter', () => {
+        clearInterval(autoplayInterval);
+    });
+    
+    carouselContainer.addEventListener('mouseleave', () => {
+        autoplayInterval = setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 4000);
+    });
+}
+
+
 // ===== CONSOLE LOG DE BIENVENIDA =====
 console.log('%c🐍 LP2 - POO en Python', 'font-size: 20px; color: #00ff99; font-weight: bold;');
 console.log('%cDesarrollado por Darwin Reynolds', 'font-size: 14px; color: #a0aec0;');

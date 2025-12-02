@@ -187,26 +187,82 @@
             </ul>
         </section>
 
-        <!-- NUEVA SECCIÓN: PROYECTOS -->
+                <!-- SECCIÓN PROYECTOS CON CARRUSEL -->
         <section class="section" id="proyectos">
             <h2 class="section-title fade-in-element">🚀 Proyectos</h2>
-            <div class="cards-grid">
-                <!-- Aquí puedes agregar tus proyectos en el futuro -->
-                <!-- Ejemplo de estructura:
-                <a href="#" class="card-link fade-in-element" target="_blank">
-                    <div class="card">
-                        <div class="card-icon">📦</div>
-                        <h3>Nombre del Proyecto</h3>
-                        <p>Descripción del proyecto.</p>
+            
+            <div class="carousel-container fade-in-element">
+                <!-- Carrusel -->
+                <div class="carousel">
+                    <!-- Proyecto 1 -->
+                    <div class="carousel-slide active">
+                        <div class="carousel-image-container">
+                            <img src="./assets/images/proyectos/calculadoraEstadisitica.png" alt="Proyecto 1" class="carousel-image">
+                        </div>
+                        <div class="carousel-content">
+                            <h3 class="carousel-title">Calculadora Estadística</h3>
+                            <p class="carousel-description">
+                                Este script funciona como una herramienta automatizada para el análisis de datos. Permite calcular medidas estadísticas clave como media, mediana, moda, varianza y desviación estándar a partir de un conjunto de datos proporcionado por el usuario.
+                            </p>
+                            <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Proyectos/CalculadoraEstadistica" class="carousel-btn" target="_blank">
+                                Ver Repositorio
+                            </a>
+                        </div>
                     </div>
-                </a>
-                -->
+
+                    <!-- Proyecto 2 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-image-container">
+                            <img src="./assets/images/proyectos/ConoceTuSignoDelZodiaco.png" alt="Proyecto 2" class="carousel-image">
+                        </div>
+                        <div class="carousel-content">
+                            <h3 class="carousel-title">Conoce tu Signo del Zodiaco</h3>
+                            <p class="carousel-description">
+                                Este programa implementa una herramienta de identificación astrológica personalizada que procesa la fecha de nacimiento del usuario. Utiliza la clase Persona para estructurar la información y validar los datos ingresados, comparando el día y mes contra un conjunto de rangos predefinidos para determinar con precisión el signo zodiacal correspondiente y presentar un resultado individualizado.
+                            </p>
+                            <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Proyectos/ConoceTuSignoDelZodiaco" class="carousel-btn" target="_blank">
+                                Ver Repositorio
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Proyecto 3 -->
+                    <div class="carousel-slide">
+                        <div class="carousel-image-container">
+                            <img src="./assets/images/proyectos/CuboImgs.png" alt="Proyecto 3" class="carousel-image">
+                        </div>
+                        <div class="carousel-content">
+                            <h3 class="carousel-title">Cubo con Imagenes en 3D</h3>
+                            <p class="carousel-description">
+                                Este script genera una visualización interactiva en 3D de un cubo utilizando la biblioteca gráfica OpenGL. Su función principal es cargar imágenes externas y "envolverlas" sobre cada cara del modelo geométrico (texturizado), aplicando simultáneamente efectos de iluminación y transparencia para dar realismo a la escena. Además, integra un sistema de control que permite al usuario manipular el objeto en tiempo real: rotando la vista mediante el teclado o el mouse, y ajustando el acercamiento (zoom) con la rueda de desplazamiento.
+                            </p>
+                            <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/Proyectos/CuboImg" class="carousel-btn" target="_blank">
+                                Ver Repositorio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles del carrusel -->
+                <button class="carousel-control prev" aria-label="Proyecto anterior">
+                    <span>‹</span>
+                </button>
+                <button class="carousel-control next" aria-label="Proyecto siguiente">
+                    <span>›</span>
+                </button>
+
+                <!-- Indicadores (puntos) -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Ir a proyecto 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Ir a proyecto 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Ir a proyecto 3"></button>
+                </div>
             </div>
         </section>
 
-        <!-- NUEVA SECCIÓN: EJEMPLOS -->
+        <!-- SECCIÓN EJEMPLOS -->
         <section class="section" id="ejemplos">
-            <h2 class="section-title fade-in-element">🖥️ Ejemplos</h2>
+            <h2 class="section-title fade-in-element visible">🖥️ Ejemplos</h2>
             <div class="cards-grid">
                 <!-- Aquí puedes agregar ejemplos de código en el futuro -->
                 <!-- Ejemplo de estructura:
