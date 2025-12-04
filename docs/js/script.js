@@ -230,7 +230,7 @@ const indicators = document.querySelectorAll('.indicator');
 let currentSlide = 0;
 const totalSlides = carouselSlides.length;
 
-// Función para mostrar slide
+// Función para mostrar slide con fade effect
 function showSlide(index) {
     // Asegurar que el índice esté en rango
     if (index >= totalSlides) {
@@ -241,13 +241,23 @@ function showSlide(index) {
         currentSlide = index;
     }
 
-    // Ocultar todos los slides
+    // Fade out del slide actual
     carouselSlides.forEach(slide => {
-        slide.classList.remove('active');
+        if (slide.classList.contains('active')) {
+            slide.style.opacity = '0';
+            setTimeout(() => {
+                slide.classList.remove('active');
+            }, 300);
+        }
     });
 
-    // Mostrar slide actual
-    carouselSlides[currentSlide].classList.add('active');
+    // Fade in del nuevo slide
+    setTimeout(() => {
+        carouselSlides[currentSlide].classList.add('active');
+        setTimeout(() => {
+            carouselSlides[currentSlide].style.opacity = '1';
+        }, 50);
+    }, 300);
 
     // Actualizar indicadores
     indicators.forEach((indicator, i) => {
@@ -256,7 +266,16 @@ function showSlide(index) {
             indicator.classList.add('active');
         }
     });
+        // Actualizar barra de progreso
+    const progressBar = document.querySelector('.carousel-progress-bar');
+    if (progressBar) {
+        const progressPercent = ((currentSlide + 1) / totalSlides) * 100;
+        progressBar.style.width = `${progressPercent}%`;
+    }
 }
+
+
+
 
 // Navegación con flechas
 if (prevBtn && nextBtn) {
@@ -288,7 +307,7 @@ document.addEventListener('keydown', (e) => {
 //Auto-play opcional (descomenta si quieres que cambie automáticamente)
 let autoplayInterval = setInterval(() => {
     showSlide(currentSlide + 1);
-}, 4000); // Cambia cada 4 segundos
+}, 4000); // Cambia cada 3.5 segundos
 
 // Pausar autoplay al hover (si está activado)
 const carouselContainer = document.querySelector('.carousel-container');
@@ -300,8 +319,55 @@ if (carouselContainer) {
     carouselContainer.addEventListener('mouseleave', () => {
         autoplayInterval = setInterval(() => {
             showSlide(currentSlide + 1);
-        }, 4000);
+        }, 3000);
     });
+}
+
+// ===== EFECTO PARALLAX EN CARRUSEL =====
+const carouselParallax = document.querySelector('.carousel-container');
+
+if (carouselParallax) {
+    window.addEventListener('scroll', () => {
+        const rect = carouselParallax.getBoundingClientRect();
+        const scrollPercent = (window.innerHeight - rect.top) / window.innerHeight;
+        
+        if (scrollPercent > 0 && scrollPercent < 1) {
+            const activeSlide = document.querySelector('.carousel-slide.active .carousel-image');
+            if (activeSlide) {              
+                activeSlide.style.transform = `translateY(${scrollPercent * 20}px)`;               
+            }
+        }
+    });
+}
+
+
+// ===== SOPORTE TOUCH/SWIPE EN MÓVILES =====
+let touchStartX = 0;
+let touchEndX = 0;
+
+const carouselSwipe = document.querySelector('.carousel');
+
+if (carouselSwipe) {
+    carouselSwipe.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carouselSwipe.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+            // Swipe left (siguiente)
+            showSlide(currentSlide + 1);
+        }
+        if (touchEndX > touchStartX + swipeThreshold) {
+            // Swipe right (anterior)
+            showSlide(currentSlide - 1);
+        }
+    }
 }
 
 
