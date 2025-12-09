@@ -334,7 +334,7 @@ if (carouselParallax) {
         if (scrollPercent > 0 && scrollPercent < 1) {
             const activeSlide = document.querySelector('.carousel-slide.active .carousel-image');
             if (activeSlide) {
-                activeSlide.style.transform = `translateY(${scrollPercent * 20}px) scale(1)`;
+                activeSlide.style.transform = `translateY(${scrollPercent * 20}px)`;
             }
         }
     });
