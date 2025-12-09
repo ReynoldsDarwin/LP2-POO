@@ -264,22 +264,69 @@
             </div>
         </section>
 
-        <!-- SECCIÓN EJEMPLOS -->
+                <!-- SECCIÓN EJEMPLOS -->
         <section class="section" id="ejemplos">
             <h2 class="section-title fade-in-element visible">🖥️ Ejemplos</h2>
-            <div class="cards-grid">
-                <!-- Aquí puedes agregar ejemplos de código en el futuro -->
-                <!-- Ejemplo de estructura:
-                <div class="card-link fade-in-element">
-                    <div class="card">
-                        <div class="card-icon">📝</div>
-                        <h3>Ejemplo de Código</h3>
-                        <p>Descripción del ejemplo.</p>
+            <div class="examples-grid">
+                
+                <!-- Ejemplo 1 -->
+                <div class="example-card fade-in-element">
+                    <div class="example-image-container" data-image="./assets/images/ejemplos/Introduccion.png">
+                        <img src="./assets/images/ejemplos/Introduccion.png" alt="Ejemplo 01" class="example-image">
+                        <div class="example-image-overlay">
+                            <span class="example-zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                    <div class="example-body">
+                        <span class="example-category">Introduccion</span>
+                        <h5 class="example-title">01-coche</h5>
+                        <p class="example-description">
+                            Introducción a POO que ejemplifica la creación y uso de objetos, permitiendo registrar un coche, mostrar sus datos y simular su arranque.
+                        </p>
+                    </div>
+                    <div class="example-footer">
+                        <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/IntroduccionPOO" class="example-btn" target="_blank">
+                            Ver en GitHub →
+                        </a>
                     </div>
                 </div>
-                -->
+
+                <div class="example-card fade-in-element">
+                    <div class="example-image-container" data-image="./assets/images/ejemplos/Condicionales.png">
+                        <img src="./assets/images/ejemplos/Condicionales.png" alt="Ejemplo 02" class="example-image">
+                        <div class="example-image-overlay">
+                            <span class="example-zoom-icon">🔍</span>
+                        </div>
+                    </div>
+                    <div class="example-body">
+                        <span class="example-category">Condicionales</span>
+                        <h5 class="example-title">06-Persona</h5>
+                        <p class="example-description">
+                            Utilizando condicionales, este script determina si la edad ingresada corresponde a una persona mayor o menor de edad mediante una verificación sencilla.
+                        </p>
+                    </div>
+                    <div class="example-footer">
+                        <a href="https://github.com/ReynoldsDarwin/LP2-POO/tree/main/IntroduccionPOO" class="example-btn" target="_blank">
+                            Ver en GitHub →
+                        </a>
+                    </div>
+                </div>
+
+                
+
+                <!-- Puedes agregar más ejemplos copiando la estructura de arriba -->
+                
             </div>
         </section>
+
+        <!-- Modal para ampliar imágenes -->
+        <div class="modal-overlay" id="imageModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <img src="" alt="Imagen ampliada" class="modal-image" id="modalImage">
+            </div>
+        </div>
+
 
         <!-- NUEVA SECCIÓN: TRABAJOS -->
         <section class="section" id="trabajos">

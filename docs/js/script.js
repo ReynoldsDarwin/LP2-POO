@@ -370,6 +370,46 @@ if (carouselSwipe) {
     }
 }
 
+// ===== MODAL DE IMÁGENES PARA EJEMPLOS =====
+const imageModal = document.getElementById('imageModal');
+const modalImage = document.getElementById('modalImage');
+const closeModal = document.getElementById('closeModal');
+const exampleImages = document.querySelectorAll('.example-image-container');
+
+// Abrir modal al hacer click en una imagen
+exampleImages.forEach(container => {
+    container.addEventListener('click', () => {
+        const imageSrc = container.getAttribute('data-image');
+        modalImage.src = imageSrc;
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll del body
+    });
+});
+
+// Cerrar modal con el botón X
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restaurar scroll
+    });
+}
+
+// Cerrar modal al hacer click fuera de la imagen
+imageModal.addEventListener('click', (e) => {
+    if (e.target === imageModal) {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
+// Cerrar modal con la tecla ESC
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+        imageModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+
 
 // ===== CONSOLE LOG DE BIENVENIDA =====
 console.log('%c🐍 LP2 - POO en Python', 'font-size: 20px; color: #00ff99; font-weight: bold;');
