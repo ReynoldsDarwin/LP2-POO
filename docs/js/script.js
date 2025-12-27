@@ -307,7 +307,7 @@ document.addEventListener('keydown', (e) => {
 //Auto-play opcional (descomenta si quieres que cambie automáticamente)
 let autoplayInterval = setInterval(() => {
     showSlide(currentSlide + 1);
-}, 4000); // Cambia cada 3.5 segundos
+}, 2000); // Cambia cada 2 segundos
 
 // Pausar autoplay al hover (si está activado)
 const carouselContainer = document.querySelector('.carousel-container');
@@ -319,7 +319,7 @@ if (carouselContainer) {
     carouselContainer.addEventListener('mouseleave', () => {
         autoplayInterval = setInterval(() => {
             showSlide(currentSlide + 1);
-        }, 3000);
+        }, 2000);
     });
 }
 
