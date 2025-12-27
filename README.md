@@ -49,7 +49,7 @@ est1.mostrar_informacion()
 ## Requisitos
 
 - Python 3.7 o superior
-- No se requieren librerías externas
+
 
 ## Ejecución
 
