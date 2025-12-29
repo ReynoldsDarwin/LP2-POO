@@ -415,4 +415,3 @@ document.addEventListener('keydown', (e) => {
 console.log('%c🐍 LP2 - POO en Python', 'font-size: 20px; color: #00ff99; font-weight: bold;');
 console.log('%cDesarrollado por Darwin Reynolds', 'font-size: 14px; color: #a0aec0;');
 console.log('%cRepositorio: https://github.com/ReynoldsDarwin/LP2-POO', 'font-size: 12px; color: #00ff99;');
-console.log('%c✨ Sitio optimizado y accesible', 'font-size: 11px; color: #6ee7b7; font-style: italic;');
