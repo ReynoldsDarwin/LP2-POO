@@ -48,7 +48,7 @@ est1.mostrar_informacion()
 
 ## Requisitos
 
-- Python 3.7 o superior
+- Python 3 o superior
 
 
 ## Ejecución
